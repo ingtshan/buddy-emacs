@@ -17,6 +17,10 @@
 (setq epkg-repository (expand-file-name "etc/epkgs" user-emacs-directory))
 (setq epkg-database-connector 'sqlite-builtin)
 
+;;; my better default
+;;
+(require 'mac-command)  ; use some mac shortcut
+
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; no-byte-compile: t

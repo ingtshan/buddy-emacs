@@ -21,9 +21,15 @@
 [submodule "etc/epkgs"]
 	path = etc/epkgs
 	url = https://github.com/emacsmirror/epkgs.git
+[submodule "mac-command"]
+	path = lib/mac-command
+	url = https://github.com/ingtshan/mac-command.el
 [submodule "outorg"]
 	path = lib/outorg
 	url = git@github.com:alphapapa/outorg.git
 [submodule "outshine"]
 	path = lib/outshine
 	url = git@github.com:alphapapa/outshine.git
+[submodule "undo-fu"]
+	path = lib/undo-fu
+	url = https://codeberg.org/ideasman42/emacs-undo-fu.git
