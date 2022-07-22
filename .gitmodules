@@ -1,3 +1,29 @@
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
+[submodule "closql"]
+	path = lib/closql
+	url = git@github.com:emacscollective/closql.git
+[submodule "compat"]
+	path = lib/compat
+	url = git@github.com:emacsmirror/compat.git
+[submodule "emacsql"]
+	no-byte-compile = emacsql-pg.el
+	path = lib/emacsql
+	url = git@github.com:skeeto/emacsql.git
+[submodule "emacsql-sqlite-builtin"]
+	no-byte-compile = emacsql-sqlite-module.el
+	path = lib/emacsql-sqlite-builtin
+	url = git@github.com:emacscollective/emacsql-sqlite-builtin.git
+[submodule "epkg"]
+	path = lib/epkg
+	url = git@github.com:emacscollective/epkg.git
+[submodule "etc/epkgs"]
+	path = etc/epkgs
+	url = https://github.com/emacsmirror/epkgs.git
+[submodule "outorg"]
+	path = lib/outorg
+	url = git@github.com:alphapapa/outorg.git
+[submodule "outshine"]
+	path = lib/outshine
+	url = git@github.com:alphapapa/outshine.git
