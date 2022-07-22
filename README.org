@@ -1,0 +1,6 @@
+#+title: My Buddy Emacs Configuration
+
+** Reference configurations
+1. [[https://github.com/purcell/emacs.d][Purcell/emacs.d]]
+2. [[https://github.com/DamienCassou/emacs.d][DamienCassou/emacs.d]]
+3. [[https://github.com/Eason0210/.emacs.d][Eason0210/.emacs.d]]
