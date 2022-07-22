@@ -1,6 +1,3 @@
-[submodule "better-defaults"]
-	path = lib/better-defaults
-	url = git@github.com:emacsmirror/better-defaults.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
