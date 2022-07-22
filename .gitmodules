@@ -1,3 +1,6 @@
+[submodule "better-defaults"]
+	path = lib/better-defaults
+	url = git@github.com:emacsmirror/better-defaults.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
@@ -7,6 +10,9 @@
 [submodule "compat"]
 	path = lib/compat
 	url = git@github.com:emacsmirror/compat.git
+[submodule "diminish"]
+	path = lib/diminish
+	url = git@github.com:myrjola/diminish.el.git
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	path = lib/emacsql
@@ -21,9 +27,15 @@
 [submodule "etc/epkgs"]
 	path = etc/epkgs
 	url = https://github.com/emacsmirror/epkgs.git
+[submodule "evil"]
+	path = lib/evil
+	url = git@github.com:emacs-evil/evil.git
 [submodule "mac-command"]
 	path = lib/mac-command
 	url = https://github.com/ingtshan/mac-command.el
+[submodule "orderless"]
+	path = lib/orderless
+	url = git@github.com:oantolin/orderless.git
 [submodule "outorg"]
 	path = lib/outorg
 	url = git@github.com:alphapapa/outorg.git
@@ -33,3 +45,9 @@
 [submodule "undo-fu"]
 	path = lib/undo-fu
 	url = https://codeberg.org/ideasman42/emacs-undo-fu.git
+[submodule "vertico"]
+	path = lib/vertico
+	url = git@github.com:minad/vertico.git
+[submodule "which-key"]
+	path = lib/which-key
+	url = git@github.com:justbur/emacs-which-key.git
