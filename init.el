@@ -78,7 +78,11 @@
 
 ;;; evil
 ;; bring vim to emacs
-(add-hook 'after-init-hook #'(lambda () (require 'evil) (evil-mode 1)))
+(add-hook 'after-init-hook
+          #'(lambda ()
+              (setq evil-want-keybinding nil)
+              (require 'evil)
+              (evil-mode 1)))
 
 ;;; which-key
 ;; make my key-binding clear
@@ -106,6 +110,8 @@
 
 ;;; magit
 ;; magic git
+(with-eval-after-load 'magit 
+  (evil-collection-init))
 
 ;;; tips of evil map
 ;; `evil-motion-state-map' Evil-specific present states that not editing
@@ -149,12 +155,7 @@
    :leader "gg" 'magit-status)
   )
 
-;; set space as a prefix key in motion state
-;; (define-key evil-motion-state-map (kbd "SPC") nil)
-
-
-
-
+(provide 'init)
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; no-byte-compile: t

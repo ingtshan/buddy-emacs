@@ -1,3 +1,6 @@
+[submodule "annalist"]
+	path = lib/annalist
+	url = git@github.com:noctuid/annalist.el.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
@@ -36,6 +39,9 @@
 [submodule "evil"]
 	path = lib/evil
 	url = git@github.com:emacs-evil/evil.git
+[submodule "evil-collection"]
+	path = lib/evil-collection
+	url = git@github.com:emacs-evil/evil-collection.git
 [submodule "ido-completing-read+"]
 	path = lib/ido-completing-read+
 	url = git@github.com:DarwinAwardWinner/ido-completing-read-plus.git
