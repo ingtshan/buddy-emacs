@@ -1,12 +1,21 @@
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
+[submodule "buddy-key"]
+	path = lib/buddy-key
+	url = git@github.com:ingtshan/buddy-key.git
 [submodule "closql"]
 	path = lib/closql
 	url = git@github.com:emacscollective/closql.git
 [submodule "compat"]
 	path = lib/compat
 	url = git@github.com:emacsmirror/compat.git
+[submodule "consult"]
+	path = lib/consult
+	url = git@github.com:minad/consult.git
+[submodule "dash"]
+	path = lib/dash
+	url = git@github.com:magnars/dash.el.git
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
@@ -27,9 +36,18 @@
 [submodule "evil"]
 	path = lib/evil
 	url = git@github.com:emacs-evil/evil.git
+[submodule "ido-completing-read+"]
+	path = lib/ido-completing-read+
+	url = git@github.com:DarwinAwardWinner/ido-completing-read-plus.git
+[submodule "libgit"]
+	path = lib/libgit
+	url = git@github.com:magit/libegit2.git
 [submodule "mac-command"]
 	path = lib/mac-command
 	url = https://github.com/ingtshan/mac-command.el
+[submodule "magit"]
+	path = lib/magit
+	url = git@github.com:magit/magit.git
 [submodule "orderless"]
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git
@@ -39,6 +57,12 @@
 [submodule "outshine"]
 	path = lib/outshine
 	url = git@github.com:alphapapa/outshine.git
+[submodule "tramp"]
+	path = lib/tramp
+	url = git@github.com:emacsmirror/tramp.git
+[submodule "transient"]
+	path = lib/transient
+	url = git@github.com:magit/transient.git
 [submodule "undo-fu"]
 	path = lib/undo-fu
 	url = https://codeberg.org/ideasman42/emacs-undo-fu.git
@@ -48,3 +72,6 @@
 [submodule "which-key"]
 	path = lib/which-key
 	url = git@github.com:justbur/emacs-which-key.git
+[submodule "with-editor"]
+	path = lib/with-editor
+	url = git@github.com:magit/with-editor.git

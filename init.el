@@ -1,4 +1,4 @@
-;;; init.el --- user-init-file                    -*- lexical-binding: t -*-
+
 
 ;;; Commentary:
 
@@ -83,7 +83,7 @@
 ;;; which-key
 ;; make my key-binding clear
 (with-eval-after-load 'evil
-  (diminish 'which-key-mode)
+  (which-key-mode)
   (which-key-setup-side-window-bottom))
 
 ;;; vertico, orderless
@@ -91,9 +91,69 @@
 (add-hook 'after-init-hook 'vertico-mode)
 (with-eval-after-load 'vertico
   (require 'orderless)
+
   (setq completion-styles '(orderless basic)
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
+
+;;; consult
+;; consult way of selecting
+(global-set-key (kbd "C-s") 'consult-line)
+
+(defun +consult/search-symbol-at-point ()
+  (interactive)
+  (consult-line (thing-at-point 'symbol)))
+
+;;; magit
+;; magic git
+
+;;; tips of evil map
+;; `evil-motion-state-map' Evil-specific present states that not editing
+;; `evil-normal-state-map'
+
+;;; buddy-key
+;; my key-binding
+(with-eval-after-load 'which-key
+  (require 'buddy-key)
+
+  ;;; leader key
+  (buddy-key-def-preset :leader
+                        :keymaps 'evil-motion-state-map
+                        :prefix "SPC")
+  (buddy-def-key :leader nil)
+
+  ;;; f file
+  (buddy-def-key
+   :leader "f" '("file" . nil)
+   :leader "ff" '("Find file" . find-file)
+   :leader "fs" '("Save file" . save-buffer)
+   )
+
+  ;;; h help
+  (buddy-def-key
+   :leader "h" '("help" . nil)
+   :leader "hp" '("package" . nil)
+   :leader "hpp" '("Describe packge" . epkg-describe-package)
+   :leader "hpi" '("Install package" . borg-assimilate)
+   )
+
+  ;;; s search
+  (buddy-def-key
+   :leader "s" '("search" . nil)
+   :leader "ss" 'consult-line
+   :leader "sS" '+consult/search-symbol-at-point)
+
+  ;; g git
+  (buddy-def-key
+   :leader "g" '("git" . nil)
+   :leader "gg" 'magit-status)
+  )
+
+;; set space as a prefix key in motion state
+;; (define-key evil-motion-state-map (kbd "SPC") nil)
+
+
+
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
