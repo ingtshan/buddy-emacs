@@ -25,6 +25,9 @@
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
+[submodule "deferred"]
+	path = lib/deferred
+	url = https://github.com/kiwanami/emacs-deferred.git
 [submodule "denote"]
 	path = lib/denote
 	url = git@github.com:ingtshan/buddy-emacs.git
@@ -69,6 +72,9 @@
 [submodule "orderless"]
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git
+[submodule "org-gtasks"]
+	path = lib/org-gtasks
+	url = git@github.com:JulienMasson/org-gtasks.git
 [submodule "outorg"]
 	path = lib/outorg
 	url = git@github.com:alphapapa/outorg.git
