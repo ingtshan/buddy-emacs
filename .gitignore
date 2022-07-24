@@ -2,3 +2,5 @@
 /history
 /places
 /transient/
+*.elc
+*-autoloads.el

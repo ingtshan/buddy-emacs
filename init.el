@@ -1,15 +1,8 @@
-
+;;; init.el --- user-init-file                    -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
 ;;; Code
-
-;;; borg
-;; use git submodule to maintain my package
-(eval-and-compile 
-  (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
-  (require 'borg)
-  (borg-initialize))
 
 ;;; epkag
 ;; describe dependence of a given package
@@ -18,7 +11,6 @@
 (setq epkg-database-connector 'sqlite-builtin)
 
 ;;; my better default
-;;
 (require 'mac-command)  ; use some mac shortcut
 (progn
   (unless (memq window-system '(mac ns))
@@ -70,6 +62,28 @@
     (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
                                                    "backups"))))))
 
+;;; ui
+;; use some code from doom-emacs
+(setq
+ doom-font (font-spec :family "Fira Code" :size 17 :weight 'regular)
+ doom-variable-pitch-font (font-spec :family "Sarasa Mono SC Nerd" :size 17))
+
+(with-eval-after-load 'vertico
+  (setq doom-serif-font doom-font)
+  (require 'core-lib)
+  (require 'core-ui)
+  (doom-init-fonts-h)
+  (load-theme 'doom-challenger-deep t))
+
+(eval-after-load 'doom-themes
+  (progn
+    (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+          doom-themes-enable-italic t) ; if nil, italics is universally disabled
+    (require 'doom-themes-ext-visual-bell)
+    (doom-themes-visual-bell-config)
+    (require 'doom-themes-ext-org)
+    (doom-themes-org-config)))
+
 ;;; tips about loading order
 ;; file: early-init.el
 ;; file: init.el
@@ -110,7 +124,7 @@
 
 ;;; magit
 ;; magic git
-(with-eval-after-load 'magit 
+(with-eval-after-load 'magit
   (evil-collection-init))
 
 ;;; tips of evil map
@@ -147,13 +161,29 @@
   (buddy-def-key
    :leader "s" '("search" . nil)
    :leader "ss" 'consult-line
-   :leader "sS" '+consult/search-symbol-at-point)
+   :leader "sS" '+consult/search-symbol-at-point
+   :leader "si" 'consult-imenu)
 
-  ;; g git
+  ;;; g git
   (buddy-def-key
    :leader "g" '("git" . nil)
    :leader "gg" 'magit-status)
-  )
+
+  ;;; o open
+  (buddy-def-key
+   :leader "o" '("open" . nil)
+   :leader "oc" '("Configuration" . (lambda ()
+                                      (interactive)
+                                      (find-file
+                                       (expand-file-name "init.el" user-emacs-directory)))))
+
+  ;; (all-the-icons-install-fonts 'yes)
+  ;;; b buffer
+  (buddy-def-key
+   :leader "b" '("buffer" . nil)
+   :leader "bB" 'consult-buffer)
+
+  );; my key-biding ends here
 
 (provide 'init)
 ;; Local Variables:
