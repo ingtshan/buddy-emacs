@@ -21,6 +21,13 @@
     (scroll-bar-mode -1))
   (when (fboundp 'horizontal-scroll-bar-mode)
     (horizontal-scroll-bar-mode -1))
+  ;; macosx
+  (when (eq system-type 'darwin)
+    (setq browse-url-browser-function 'browse-url-default-macosx-browser))
+  ;; windows-nt
+  (when (eq system-type 'windows-nt)
+    (setq browse-url-browser-function 'browse-url-default-windows-browser))
+  ;; (setq browse-url-browser-function 'browse-url-chromium)
 
   (autoload 'zap-up-to-char "misc"
     "Kill up to, but not including ARGth occurrence of CHAR." t)
@@ -131,6 +138,15 @@
 ;; `evil-motion-state-map' Evil-specific present states that not editing
 ;; `evil-normal-state-map'
 
+;;; load private
+(let ((config-file
+       (expand-file-name
+        "etc/private/config.el"
+        user-emacs-directory)))
+
+  (when (file-exists-p config-file)
+    (load-file config-file)))
+
 ;;; buddy-key
 ;; my key-binding
 (with-eval-after-load 'which-key
@@ -155,6 +171,7 @@
    :leader "hp" '("package" . nil)
    :leader "hpp" '("Describe packge" . epkg-describe-package)
    :leader "hpi" '("Install package" . borg-assimilate)
+   :leader "hpr" '("Remove package" . borg-remove)
    )
 
   ;;; s search
@@ -172,16 +189,41 @@
   ;;; o open
   (buddy-def-key
    :leader "o" '("open" . nil)
-   :leader "oc" '("Configuration" . (lambda ()
+   :leader "oc" '("configuration" . nil)
+   :leader "occ" '("Configuration"
+                   . (lambda ()
                                       (interactive)
                                       (find-file
-                                       (expand-file-name "init.el" user-emacs-directory)))))
+                                      (expand-file-name "init.el" user-emacs-directory))))
+   :leader "ocn" '("Note workflow"
+                   . (lambda ()
+                                      (interactive)
+                                      (find-file
+                                      (expand-file-name "lib/buddy-note/buddy-note.el" user-emacs-directory))))
+
+   :leader "ocp" '("Private configuration"
+                   . (lambda ()
+                                      (interactive)
+                                      (find-file
+                                      (expand-file-name "etc/private/config.el" user-emacs-directory)))))
 
   ;; (all-the-icons-install-fonts 'yes)
   ;;; b buffer
   (buddy-def-key
    :leader "b" '("buffer" . nil)
    :leader "bB" 'consult-buffer)
+
+  ;;; i insert
+  (buddy-def-key
+   :leader "i" '("insert" . nil)
+   :leader "ig" '("git message" . nil)
+   :leader "igb" 'borg-insert-update-message)
+
+  ;;; n note
+  (buddy-def-key
+   :leader "n" '("notes" . nil)
+   :leader "ng" '("Google tasks" . org-gtasks)
+   :ledaer "nv" 'consult-notes)
 
   );; my key-biding ends here
 
