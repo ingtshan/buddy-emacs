@@ -5,3 +5,4 @@
 *.elc
 *-autoloads.el
 /etc/private
+/request/

@@ -22,6 +22,9 @@
 [submodule "consult"]
 	path = lib/consult
 	url = git@github.com:minad/consult.git
+[submodule "consult-note"]
+	path = lib/consult-note
+	url = git@github.com:mclear-tools/consult-notes.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
@@ -30,7 +33,7 @@
 	url = https://github.com/kiwanami/emacs-deferred.git
 [submodule "denote"]
 	path = lib/denote
-	url = git@github.com:ingtshan/buddy-emacs.git
+	url = git@github.com:protesilaos/denote.git
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
@@ -87,6 +90,9 @@
 [submodule "request-deferred"]
 	path = lib/request-deferred
 	url = git@github.com:tkf/emacs-request.git
+[submodule "s"]
+	path = lib/s
+	url = https://github.com/magnars/s.el.git
 [submodule "tramp"]
 	path = lib/tramp
 	url = git@github.com:emacsmirror/tramp.git
