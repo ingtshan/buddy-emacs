@@ -4,3 +4,4 @@
 /transient/
 *.elc
 *-autoloads.el
+/etc/private

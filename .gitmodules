@@ -84,6 +84,9 @@
 [submodule "packed"]
 	path = lib/packed
 	url = https://github.com/emacscollective/packed.git
+[submodule "request-deferred"]
+	path = lib/request-deferred
+	url = git@github.com:tkf/emacs-request.git
 [submodule "tramp"]
 	path = lib/tramp
 	url = git@github.com:emacsmirror/tramp.git
