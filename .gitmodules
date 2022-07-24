@@ -1,6 +1,12 @@
+[submodule "all-the-icons"]
+	path = lib/all-the-icons
+	url = https://github.com/domtronn/all-the-icons.el.git
 [submodule "annalist"]
 	path = lib/annalist
 	url = git@github.com:noctuid/annalist.el.git
+[submodule "auto-compile"]
+	path = lib/auto-compile
+	url = https://github.com/emacscollective/auto-compile.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
@@ -22,6 +28,9 @@
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
+[submodule "doom-themes"]
+	path = lib/doom-themes
+	url = https://github.com/doomemacs/themes.git
 [submodule "emacsql"]
 	no-byte-compile = emacsql-pg.el
 	path = lib/emacsql
@@ -63,6 +72,9 @@
 [submodule "outshine"]
 	path = lib/outshine
 	url = git@github.com:alphapapa/outshine.git
+[submodule "packed"]
+	path = lib/packed
+	url = https://github.com/emacscollective/packed.git
 [submodule "tramp"]
 	path = lib/tramp
 	url = git@github.com:emacsmirror/tramp.git
