@@ -72,6 +72,9 @@
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
+[submodule "names"]
+	path = lib/names
+	url = https://github.com/Malabarba/names.git
 [submodule "orderless"]
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git
@@ -93,6 +96,9 @@
 [submodule "s"]
 	path = lib/s
 	url = https://github.com/magnars/s.el.git
+[submodule "simplenote2"]
+	path = lib/simplenote2
+	url = https://github.com/alpha22jp/simplenote2.el.git
 [submodule "tramp"]
 	path = lib/tramp
 	url = git@github.com:emacsmirror/tramp.git
@@ -102,6 +108,12 @@
 [submodule "undo-fu"]
 	path = lib/undo-fu
 	url = https://codeberg.org/ideasman42/emacs-undo-fu.git
+[submodule "unicode-escape"]
+	path = lib/unicode-escape
+	url = https://github.com/kosh04/unicode-escape.el.git
+[submodule "uuidgen"]
+	path = lib/uuidgen
+	url = https://github.com/kanru/uuidgen-el.git
 [submodule "vertico"]
 	path = lib/vertico
 	url = git@github.com:minad/vertico.git
