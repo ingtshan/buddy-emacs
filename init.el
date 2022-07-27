@@ -227,6 +227,75 @@
 
   );; my key-biding ends here
 
+;;; useful tool
+(defvar default-proxy "127.0.0.1:1080")
+(defvar socks-server)
+(defvar socks-noproxy)
+;; Network Proxy
+(defun ult/proxy-http-show ()
+  "Show HTTP/HTTPS proxy."
+  (interactive)
+  (if url-proxy-services
+      (message "Current HTTP proxy is `%s'" default-proxy)
+    (message "No HTTP proxy")))
+
+(defun ult/proxy-http-enable ()
+  "Enable HTTP/HTTPS proxy."
+  (interactive)
+  (setq url-proxy-services
+        `(("http" . ,default-proxy)
+          ("https" . ,default-proxy)
+          ("no_proxy" . "^\\(localhost\\|192.168.*\\|10.*\\)")))
+  (ult/proxy-http-show))
+
+(defun ult/proxy-http-disable ()
+  "Disable HTTP/HTTPS proxy."
+  (interactive)
+  (setq url-proxy-services nil)
+  (ult/proxy-http-show))
+
+(defun ult/proxy-http-toggle ()
+  "Toggle HTTP/HTTPS proxy."
+  (interactive)
+  (if (bound-and-true-p url-proxy-services)
+      (ult/proxy-http-disable)
+    (ult/proxy-http-enable)))
+
+(defun ult/proxy-socks-show ()
+  "Show SOCKS proxy."
+  (interactive)
+  (when (fboundp 'cadddr)                ; defined 25.2+
+    (if (bound-and-true-p socks-noproxy)
+        (message "Current SOCKS%d proxy is %s:%d"
+                 (cadddr socks-server) (cadr socks-server) (caddr socks-server))
+      (message "No SOCKS proxy"))))
+
+(defun ult/proxy-socks-enable ()
+  "Enable SOCKS proxy."
+  (interactive)
+  (require 'socks)
+  (let* ((proxy (split-string default-proxy "\\s-*:\\s-*"))
+         (addr (car proxy))
+         (port (string-to-number (cadr proxy))))
+    (setq url-gateway-method 'socks
+          socks-noproxy '("localhost")
+          socks-server `("Default server" ,addr ,port 5)))
+  (ult/proxy-socks-show))
+
+(defun ult/proxy-socks-disable ()
+  "Disable SOCKS proxy."
+  (interactive)
+  (setq url-gateway-method 'native
+        socks-noproxy nil)
+  (ult/proxy-socks-show))
+
+(defun ult/proxy-socks-toggle ()
+  "Toggle SOCKS proxy."
+  (interactive)
+  (if (bound-and-true-p socks-noproxy)
+      (ult/proxy-socks-disable)
+    (ult/proxy-socks-enable)))
+
 (provide 'init)
 ;; Local Variables:
 ;; indent-tabs-mode: nil
