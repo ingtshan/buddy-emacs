@@ -13,6 +13,9 @@
 [submodule "buddy-key"]
 	path = lib/buddy-key
 	url = git@github.com:ingtshan/buddy-key.git
+[submodule "buttercup"]
+	path = lib/buttercup
+	url = https://github.com/jorgenschaefer/emacs-buttercup.git
 [submodule "closql"]
 	path = lib/closql
 	url = git@github.com:emacscollective/closql.git
@@ -25,6 +28,9 @@
 [submodule "consult-note"]
 	path = lib/consult-note
 	url = git@github.com:mclear-tools/consult-notes.git
+[submodule "consult-org-roam"]
+	path = lib/consult-org-roam
+	url = https://github.com/jgru/consult-org-roam.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
@@ -63,6 +69,9 @@
 [submodule "ido-completing-read+"]
 	path = lib/ido-completing-read+
 	url = git@github.com:DarwinAwardWinner/ido-completing-read-plus.git
+[submodule "lib/scratch"]
+	path = lib/scratch
+	url = https://codeberg.org/emacs-weirdware/scratch.git
 [submodule "libgit"]
 	path = lib/libgit
 	url = git@github.com:magit/libegit2.git
@@ -84,6 +93,9 @@
 [submodule "org-gtasks"]
 	path = lib/org-gtasks
 	url = git@github.com:JulienMasson/org-gtasks.git
+[submodule "org-roam"]
+	path = lib/org-roam
+	url = https://github.com/org-roam/org-roam.git
 [submodule "outorg"]
 	path = lib/outorg
 	url = git@github.com:alphapapa/outorg.git
