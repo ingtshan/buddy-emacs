@@ -24,6 +24,17 @@
         ("git@gitlab.com:" . "https://gitlab.com/")))
   (borg-initialize))
 
+;;; no-littering
+;; keeping ~/.emacs.d clean
+(setq make-backup-files nil
+      custom-file (expand-file-name "custom.el" user-emacs-directory)
+      no-littering-etc-directory
+      (expand-file-name "etc/local/config" user-emacs-directory)
+      no-littering-var-directory
+      (expand-file-name "etc/local/var" user-emacs-directory))
+
+(require 'no-littering)
+
 ;;; auto-complie
 ;; (setq load-prefer-newer t)
 ;; (add-to-list 'load-path (expand-file-name "lib/compat" user-emacs-directory))

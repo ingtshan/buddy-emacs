@@ -21,6 +21,7 @@
     (scroll-bar-mode -1))
   (when (fboundp 'horizontal-scroll-bar-mode)
     (horizontal-scroll-bar-mode -1))
+
   ;; macosx
   (when (eq system-type 'darwin)
     (setq browse-url-browser-function 'browse-url-default-macosx-browser))
@@ -40,14 +41,6 @@
 
   (set-default-coding-systems 'utf-8)
 
-  ;; (global-set-key (kbd "M-/") 'hippie-expand)
-  ;; (global-set-key (kbd "C-x C-b") 'ibuffer)
-  ;; (global-set-key (kbd "M-z") 'zap-up-to-char)
-  ;; (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-  ;; (global-set-key (kbd "C-r") 'isearch-backward-regexp)
-  ;; (global-set-key (kbd "C-M-s") 'isearch-forward)
-  ;; (global-set-key (kbd "C-M-r") 'isearch-backward)
-
   (show-paren-mode 1)
   (setq-default indent-tabs-mode nil)
   (savehist-mode 1)
@@ -61,13 +54,7 @@
         load-prefer-newer t
         backup-by-copying t
         create-lockfiles nil
-        make-backup-files nil
-        ediff-window-setup-function 'ediff-setup-windows-plain
-        custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-  (unless backup-directory-alist
-    (setq backup-directory-alist `(("." . ,(concat user-emacs-directory
-                                                   "backups"))))))
+        ediff-window-setup-function 'ediff-setup-windows-plain))
 
 ;;; ui
 ;; use some code from doom-emacs
