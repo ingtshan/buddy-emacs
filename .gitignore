@@ -6,3 +6,4 @@
 *-autoloads.el
 /etc/private
 /request/
+/etc/local/

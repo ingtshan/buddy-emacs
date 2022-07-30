@@ -75,6 +75,9 @@
 [submodule "names"]
 	path = lib/names
 	url = https://github.com/Malabarba/names.git
+[submodule "no-littering"]
+	path = lib/no-littering
+	url = https://github.com/emacscollective/no-littering.git
 [submodule "orderless"]
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git
@@ -123,3 +126,6 @@
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
+[submodule "zettelkasten"]
+	path = lib/zettelkasten
+	url = https://github.com/ymherklotz/emacs-zettelkasten.git
