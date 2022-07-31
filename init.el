@@ -54,13 +54,16 @@
         load-prefer-newer t
         backup-by-copying t
         create-lockfiles nil
-        ediff-window-setup-function 'ediff-setup-windows-plain))
+        ediff-window-setup-function 'ediff-setup-windows-plain
+        system-time-locale "C" ; formatting time values in English
+        ))
 
 ;;; ui
 ;; use some code from doom-emacs
 (setq
  doom-font (font-spec :family "Fira Code" :size 17 :weight 'regular)
- doom-variable-pitch-font (font-spec :family "Sarasa Mono SC Nerd" :size 17))
+ doom-variable-pitch-font (font-spec :family "Sarasa Mono SC Nerd" :size 17)
+ vertico-posframe-font "Sarasa Mono SC Nerd 16")
 
 (with-eval-after-load 'vertico
   (setq doom-serif-font doom-font)
@@ -94,6 +97,34 @@
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
 
+;;; vertico-posframe
+;; bring children frame to vertico
+;; (defface vertico-posframe-border
+;;   '((t (:inherit default :background "gray50")))
+;;   "Face used by the vertico-posframe's border."
+;;   :group 'vertico-posframe)
+
+;; (defun buddy--vertico-stop-using-minibuffer ()
+;;   "kill the minibuffer"
+;;   (when (and (>= (recursion-depth) 1)
+;;              (active-minibuffer-window))
+;;     (abort-recursive-edit)))
+;; ;; kill minibuffer while unfocus
+;; (add-hook 'mouse-leave-buffer-hook 'buddy--vertico-stop-using-minibuffer)
+;; enabel after vertico
+;; (add-hook 'vertico-mode-hook
+;;           #'(lambda ()
+;;               (require 'vertico-posframe)
+;;               (vertico-posframe-mode 1)))
+
+;;; marginalia
+;; more describtion of candidate
+(with-eval-after-load 'vertico
+  (require 'marginalia)
+  (require 'all-the-icons-completion)
+  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup)
+  (add-hook 'vertico-mode-hook #'marginalia-mode))
+
 ;;; consult
 ;; consult way of selecting
 (global-set-key (kbd "C-s") 'consult-line)
@@ -124,6 +155,16 @@
 ;; my key-binding
 (with-eval-after-load 'which-key
   (require 'buddy-key)
+
+  ;;; extend evil
+  (buddy-def-key
+   :keymaps 'evil-normal-state-map
+   "U" 'undo-tree-visualize)
+
+  ;;; fix evil
+  (buddy-def-key
+   :keymaps 'evil-motion-state-map
+   "C-u" 'evil-scroll-up)
 
   ;;; leader key
   (buddy-key-def-preset :leader
@@ -206,7 +247,8 @@
   ;;; i insert
   (buddy-def-key
    :leader "i" '("insert" . nil)
-   :leader "ig" '("git message" . nil))
+   :leader "ig" '("git message" . nil)
+   :leader "in" 'buddy-note-insert-thought)
 
   ;;; ig insert git message
   (buddy-def-key
@@ -216,7 +258,9 @@
   (buddy-def-key
    :leader "n" '("notes" . nil)
    :leader "ng" '("Google tasks" . org-gtasks)
-   :ledaer "nv" 'consult-notes)
+   :ledaer "nv" 'consult-notes
+   :leader "nn" 'buddy-note-subdirectory
+   :leader "nc" 'org-capture)
 
   ;;; k kill
   (buddy-def-key
@@ -339,7 +383,10 @@
                ;; "im.rime.inputmethod.Squirrel.Rime"
                "com.apple.inputmethod.SCIM.ITABC")
               (sis-global-respect-mode t)
-
+              ;;; undo
+              (global-undo-tree-mode)
+              ;;; noting
+              (require 'buddy-note)
               ;;;
               ))
 
