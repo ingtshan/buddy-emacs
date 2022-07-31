@@ -1,6 +1,9 @@
 [submodule "all-the-icons"]
 	path = lib/all-the-icons
 	url = https://github.com/domtronn/all-the-icons.el.git
+[submodule "all-the-icons-completion"]
+	path = lib/all-the-icons-completion
+	url = https://github.com/iyefrat/all-the-icons-completion.git
 [submodule "annalist"]
 	path = lib/annalist
 	url = git@github.com:noctuid/annalist.el.git
@@ -81,6 +84,9 @@
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
+[submodule "marginalia"]
+	path = lib/marginalia
+	url = https://github.com/minad/marginalia.git
 [submodule "names"]
 	path = lib/names
 	url = https://github.com/Malabarba/names.git
@@ -108,6 +114,12 @@
 [submodule "packed"]
 	path = lib/packed
 	url = https://github.com/emacscollective/packed.git
+[submodule "posframe"]
+	path = lib/posframe
+	url = https://github.com/tumashu/posframe.git
+[submodule "queue"]
+	path = lib/queue
+	url = https://github.com/emacsmirror/queue.git
 [submodule "request-deferred"]
 	path = lib/request-deferred
 	url = git@github.com:tkf/emacs-request.git
@@ -132,6 +144,9 @@
 [submodule "undo-fu"]
 	path = lib/undo-fu
 	url = https://codeberg.org/ideasman42/emacs-undo-fu.git
+[submodule "undo-tree"]
+	path = lib/undo-tree
+	url = https://gitlab.com/tsc25/undo-tree.git
 [submodule "unicode-escape"]
 	path = lib/unicode-escape
 	url = https://github.com/kosh04/unicode-escape.el.git
@@ -141,6 +156,9 @@
 [submodule "vertico"]
 	path = lib/vertico
 	url = git@github.com:minad/vertico.git
+[submodule "vertico-posframe"]
+	path = lib/vertico-posframe
+	url = https://github.com/tumashu/vertico-posframe.git
 [submodule "which-key"]
 	path = lib/which-key
 	url = git@github.com:justbur/emacs-which-key.git
