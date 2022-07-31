@@ -78,20 +78,6 @@
     (require 'doom-themes-ext-org)
     (doom-themes-org-config)))
 
-;;; tips about loading order
-;; file: early-init.el
-;; file: init.el
-;; `after-init-hook'
-;; `emacs-startup-hook'
-
-;;; evil
-;; bring vim to emacs
-(add-hook 'after-init-hook
-          #'(lambda ()
-              (setq evil-want-keybinding nil)
-              (require 'evil)
-              (evil-mode 1)))
-
 ;;; which-key
 ;; make my key-binding clear
 (with-eval-after-load 'evil
@@ -121,10 +107,6 @@
 (with-eval-after-load 'magit
   (evil-collection-init))
 
-;;; tips of evil map
-;; `evil-motion-state-map' Evil-specific present states that not editing
-;; `evil-normal-state-map'
-
 ;;; load private
 (let ((config-file
        (expand-file-name
@@ -134,6 +116,10 @@
   (when (file-exists-p config-file)
     (load-file config-file)))
 
+;;; tips of evil map
+;; `evil-motion-state-map' Evil-specific present states that not editing
+;; `evil-normal-state-map'
+
 ;;; buddy-key
 ;; my key-binding
 (with-eval-after-load 'which-key
@@ -141,9 +127,13 @@
 
   ;;; leader key
   (buddy-key-def-preset :leader
-                        :keymaps 'evil-motion-state-map
-                        :prefix "SPC")
-  (buddy-def-key :leader nil)
+    :keymaps 'evil-motion-state-map
+    :prefix "SPC")
+  (buddy-def-key
+   :leader nil)
+
+  (buddy-def-key
+   :leader "x" 'scratch)
 
   ;;; f file
   (buddy-def-key
@@ -152,14 +142,48 @@
    :leader "fs" '("Save file" . save-buffer)
    )
 
+  ;;; m my
+  (buddy-def-key
+   :leader "m" '("my stuff" . nil)
+   :leader "mc" '("configuration" . nil))
+
+  ;;; mc my configuration
+  (buddy-def-key
+   :leader "mcc" '("Configuration"
+                   . (lambda ()
+                       (interactive)
+                       (find-file
+                        (expand-file-name
+                         "init.el"
+                         user-emacs-directory))))
+
+   :leader "mcp" '("Private configuration"
+                   . (lambda ()
+                       (interactive)
+                       (find-file
+                        (expand-file-name
+                         "etc/private/config.el"
+                         user-emacs-directory))))
+
+   :leader "mcn" '("Note workflow"
+                   . (lambda ()
+                       (interactive)
+                       (find-file
+                        (expand-file-name
+                         "lib/buddy-emacs/feature/buddy-note.el"
+                         user-emacs-directory)))))
+
   ;;; h help
   (buddy-def-key
    :leader "h" '("help" . nil)
    :leader "hp" '("package" . nil)
+   )
+
+  ;;; hp help package
+  (buddy-def-key
    :leader "hpp" '("Describe packge" . epkg-describe-package)
    :leader "hpi" '("Install package" . borg-assimilate)
-   :leader "hpr" '("Remove package" . borg-remove)
-   )
+   :leader "hpr" '("Remove package" . borg-remove))
 
   ;;; s search
   (buddy-def-key
@@ -173,27 +197,6 @@
    :leader "g" '("git" . nil)
    :leader "gg" 'magit-status)
 
-  ;;; o open
-  (buddy-def-key
-   :leader "o" '("open" . nil)
-   :leader "oc" '("configuration" . nil)
-   :leader "occ" '("Configuration"
-                   . (lambda ()
-                                      (interactive)
-                                      (find-file
-                                      (expand-file-name "init.el" user-emacs-directory))))
-   :leader "ocn" '("Note workflow"
-                   . (lambda ()
-                                      (interactive)
-                                      (find-file
-                                      (expand-file-name "lib/buddy-note/buddy-note.el" user-emacs-directory))))
-
-   :leader "ocp" '("Private configuration"
-                   . (lambda ()
-                                      (interactive)
-                                      (find-file
-                                      (expand-file-name "etc/private/config.el" user-emacs-directory)))))
-
   ;; (all-the-icons-install-fonts 'yes)
   ;;; b buffer
   (buddy-def-key
@@ -203,7 +206,10 @@
   ;;; i insert
   (buddy-def-key
    :leader "i" '("insert" . nil)
-   :leader "ig" '("git message" . nil)
+   :leader "ig" '("git message" . nil))
+
+  ;;; ig insert git message
+  (buddy-def-key
    :leader "igb" 'borg-insert-update-message)
 
   ;;; n note
@@ -211,6 +217,12 @@
    :leader "n" '("notes" . nil)
    :leader "ng" '("Google tasks" . org-gtasks)
    :ledaer "nv" 'consult-notes)
+
+  ;;; k kill
+  (buddy-def-key
+   :leader "k" '("kill" . nil)
+   :leader "kb" 'kill-buffer
+   :leader "kB" 'kill-current-buffer)
 
   );; my key-biding ends here
 
@@ -282,6 +294,40 @@
   (if (bound-and-true-p socks-noproxy)
       (ult/proxy-socks-disable)
     (ult/proxy-socks-enable)))
+
+;;; tips about loading order
+;; file: early-init.el
+;; file: init.el
+;; `after-init-hook'
+;; `emacs-startup-hook'
+;;
+;; load sequence
+;; load-path
+;; borg->no-littering->epkg->my better default->useful tool
+;; after-init->evil->which-key->buddy-key
+;; after-init->vertico->orderless
+;;                    ->ui(doom-themes)
+;;
+;; autoload: consult, magit
+
+(add-hook 'after-init-hook
+          #'(lambda ()
+              ;;; evil
+              ;; bring vim to emacs
+              (setq evil-want-keybinding nil)
+              (require 'evil)
+              (evil-mode 1)
+              ;;;
+              ))
+
+(add-hook 'emacs-startup-hook
+          #'(lambda ()
+              ;;; word-wrap
+              ;; show long line better
+              (setq word-wrap-by-category t)
+              (global-visual-line-mode)
+              ;;;
+              ))
 
 (provide 'init)
 ;; Local Variables:

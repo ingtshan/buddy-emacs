@@ -31,7 +31,9 @@
       no-littering-etc-directory
       (expand-file-name "etc/local/config" user-emacs-directory)
       no-littering-var-directory
-      (expand-file-name "etc/local/var" user-emacs-directory))
+      (expand-file-name "etc/local/var" user-emacs-directory)
+      auto-save-file-name-transforms
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
 
 (require 'no-littering)
 
