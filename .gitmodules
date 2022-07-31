@@ -90,6 +90,9 @@
 [submodule "orderless"]
 	path = lib/orderless
 	url = git@github.com:oantolin/orderless.git
+[submodule "org"]
+	path = lib/org
+	url = https://github.com/emacsmirror/org.git
 [submodule "org-gtasks"]
 	path = lib/org-gtasks
 	url = git@github.com:JulienMasson/org-gtasks.git
