@@ -117,6 +117,12 @@
 [submodule "simplenote2"]
 	path = lib/simplenote2
 	url = https://github.com/alpha22jp/simplenote2.el.git
+[submodule "sis"]
+	path = lib/sis
+	url = https://github.com/laishulu/emacs-smart-input-source.git
+[submodule "terminal-focus-reporting"]
+	path = lib/terminal-focus-reporting
+	url = https://github.com/veelenga/terminal-focus-reporting.el.git
 [submodule "tramp"]
 	path = lib/tramp
 	url = git@github.com:emacsmirror/tramp.git
