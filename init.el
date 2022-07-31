@@ -317,6 +317,7 @@
               (setq evil-want-keybinding nil)
               (require 'evil)
               (evil-mode 1)
+
               ;;;
               ))
 
@@ -326,6 +327,19 @@
               ;; show long line better
               (setq word-wrap-by-category t)
               (global-visual-line-mode)
+
+              ;;; sis
+              ;; less input method manual switch
+              (sis-ism-lazyman-config
+               ;; English input source may be: "ABC", "US" or another one.
+               "com.apple.keylayout.ABC"
+               ;; "com.apple.keylayout.US"
+
+               ;; Other language input source: "rime", "sogou" or another one.
+               ;; "im.rime.inputmethod.Squirrel.Rime"
+               "com.apple.inputmethod.SCIM.ITABC")
+              (sis-global-respect-mode t)
+
               ;;;
               ))
 
