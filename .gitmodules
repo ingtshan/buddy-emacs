@@ -43,6 +43,9 @@
 [submodule "denote"]
 	path = lib/denote
 	url = git@github.com:protesilaos/denote.git
+[submodule "devdocs-lookup"]
+	path = lib/devdocs-lookup
+	url = git@github.com:skeeto/devdocs-lookup.git
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
