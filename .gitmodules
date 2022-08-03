@@ -120,6 +120,9 @@
 [submodule "posframe"]
 	path = lib/posframe
 	url = https://github.com/tumashu/posframe.git
+[submodule "projectile"]
+	path = lib/projectile
+	url = https://github.com/bbatsov/projectile.git
 [submodule "queue"]
 	path = lib/queue
 	url = https://github.com/emacsmirror/queue.git

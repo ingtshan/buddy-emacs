@@ -136,7 +136,17 @@
 ;;; magit
 ;; magic git
 (with-eval-after-load 'magit
-  (evil-collection-init))
+  ;; fix evil in magit buffer
+  (evil-collection-init)
+  ;; yadm with maigt
+  (require 'tramp)
+  (add-to-list 'tramp-methods
+               '("yadm"
+                 (tramp-login-program "yadm")
+                 (tramp-login-args (("enter")))
+                 (tramp-login-env (("SHELL") ("/bin/sh")))
+                 (tramp-remote-shell "/bin/sh")
+                 (tramp-remote-shell-args ("-c")))))
 
 ;;; load private
 (let ((config-file
@@ -267,6 +277,18 @@
    :leader "k" '("kill" . nil)
    :leader "kb" 'kill-buffer
    :leader "kB" 'kill-current-buffer)
+
+  ;;; y yadm
+  (buddy-def-key
+   :leader "y" '("yet more" . nil)
+   :leader "yy" '("yadm"
+                  . (lambda ()
+                      (interactive)
+                      (magit-status "/yadm::"))))
+  ;;; p projectile
+  (buddy-def-key
+   :leader "p" '("project" . nil)
+   :leader "pp" 'projectile-switch-project)
 
   );; my key-biding ends here
 
