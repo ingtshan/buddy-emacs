@@ -123,6 +123,9 @@
 [submodule "posframe"]
 	path = lib/posframe
 	url = https://github.com/tumashu/posframe.git
+[submodule "projectile"]
+	path = lib/projectile
+	url = https://github.com/bbatsov/projectile.git
 [submodule "promise"]
 	path = lib/promise
 	url = https://github.com/chuntaro/emacs-promise.git
