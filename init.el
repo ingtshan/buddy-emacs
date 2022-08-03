@@ -260,7 +260,14 @@
    :leader "ng" '("Google tasks" . org-gtasks)
    :ledaer "nv" 'consult-notes
    :leader "nn" 'buddy-note-subdirectory
-   :leader "nc" 'org-capture)
+   :leader "nc" 'org-capture
+   :leader "na" '("anki" . nil))
+
+  ;;; na note anki
+  (buddy-def-key
+   :leader "nau" 'org-anki-sync-entry
+   :leader "nav" 'org-anki-browse-entry
+   :leader "naU" 'org-anki-sync-all)
 
   ;;; k kill
   (buddy-def-key
