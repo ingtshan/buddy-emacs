@@ -409,6 +409,7 @@
               (global-undo-tree-mode)
               ;;; noting
               (require 'buddy-note)
+              (require 'scratch)
               ;;;
               ))
 
