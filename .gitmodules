@@ -102,6 +102,9 @@
 [submodule "org"]
 	path = lib/org
 	url = https://github.com/emacsmirror/org.git
+[submodule "org-anki"]
+	path = lib/org-anki
+	url = https://github.com/eyeinsky/org-anki.git
 [submodule "org-gtasks"]
 	path = lib/org-gtasks
 	url = git@github.com:JulienMasson/org-gtasks.git
@@ -120,6 +123,9 @@
 [submodule "posframe"]
 	path = lib/posframe
 	url = https://github.com/tumashu/posframe.git
+[submodule "promise"]
+	path = lib/promise
+	url = https://github.com/chuntaro/emacs-promise.git
 [submodule "queue"]
 	path = lib/queue
 	url = https://github.com/emacsmirror/queue.git
@@ -168,6 +174,9 @@
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
+[submodule "yasnippet"]
+	path = lib/yasnippet
+	url = https://github.com/joaotavora/yasnippet.git
 [submodule "zettelkasten"]
 	path = lib/zettelkasten
 	url = https://github.com/ymherklotz/emacs-zettelkasten.git
